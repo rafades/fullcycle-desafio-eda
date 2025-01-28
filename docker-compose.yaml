@@ -1,4 +1,4 @@
-version: "3"
+version: "3.8"
 
 services:
   goapp:
@@ -101,13 +101,15 @@ services:
     restart: on-failure
     #env_file: ./.env
     ports:
-      - 3003:16001
+      - 3003:3003
     environment:
       SPRING_DATASOURCE_URL: jdbc:mysql://balance-db:3306/balance
       SPRING_DATASOURCE_USERNAME: root
       SPRING_DATASOURCE_PASSWORD: root
       SPRING_KAFKA_BOOTSTRAP-SERVERS: kafka:29092
       SPRING_KAFKA_CONSUMER_GROUP-ID: wallet
+      MANAGEMENT_ENDPOINT_HEALTH_SHOW-DETAILS: always
+      MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE: "*"
 
     volumes:
       - .m2:/root/.m2
