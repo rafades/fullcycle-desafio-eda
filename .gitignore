@@ -1,2 +1,3 @@
 # ignorar conteudo do diretorio .docker
 .docker
+.m2
